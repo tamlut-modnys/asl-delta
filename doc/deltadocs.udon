@@ -1,0 +1,27 @@
+## Documentation for the %delta app
+
+This app lets you push numbers onto a stack or pop them off. You can also view the current stack by peeking the current state.
+
++ Pushing a number
+```
+:delta &delta-action [%push ~sampel-palnet 1]
+```
+
++ Popping a number
+`:delta &delta-action [%pop ~sampel-palnet]`
+
++ Peeking at the state
+```
+.^((list @) %gx /~sampel-palnet/delta=/values/noun)
+```
+Or simply `.^((list @) %gx /=delta=/values/noun)` if you're on the ship running %delta.
+
+# %delta-follower
+
+There is also a %delta-follower app which can subscribe to %delta and relay state changes.
+
++ Subscribe
+`:delta-follower [%sub ~sampel-palnet]`
+
++ Unsubscribe
+`:delta-follower [%unsub ~sampel-palnet]`
